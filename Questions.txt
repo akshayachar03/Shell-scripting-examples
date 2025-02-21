@@ -1,0 +1,122 @@
+1. date command is giving output but date with pipe command is not giving output why?
+
+For Ex: date | echo " today is"
+
+>> Becuse date is a sytem default command it sends the output to stdin but pipe is not able to recieve the output from stdin. Pipe can only recive the information if the command is not sending the information to stdin and if the command is ready to pass the information to next command
+
+2. What is the difference between curl and wget commands?
+
+>> wget is used to download stuffs from internet and using cul we can directly view the contents in the file.
+
+For example if you dont want to store the output in your local machine you can use curl, if you want to have a copy of file in your machine then you canuse wget.
+
+
+3. What is trap command?
+
+>>The trap command in Linux is used to catch and handle signals during script execution. It allows you to execute specific commands when the script receives a signal like SIGINT (Ctrl+C), SIGTERM, or EXIT.
+
+Syntax: trap 'command-to-run' SIGNALS
+
+4. write a shell script to print only error in remote log file.
+
+>> I can use the curl, pipe and grep command to get errors in any remote log file if I have the logfile URL.
+
+For Ex:
+
+curl -s "$LOG_URL" | grep -i "error" > errors.log
+
+It will give the only errors in logfile and will write to a new file called errors.log.
+
+5. write a shell script to print numbers divisible by 3,5 and not 15?
+
+>> 
+
+#!/bin/bash
+
+# Print numbers divisible by 3 and 5 but not by 15
+
+for i in {1..100}; do
+    if [[ ($((i % 3)) -eq 0 || $((i % 5)) -eq 0) && $((i % 15)) -ne 0 ]]; then
+        echo "$i"
+    fi
+done
+
+~      
+
+
+6. write a script to print number of "S" in mississippi
+
+>>
+
+#!/bin/bash
+
+x=mississippi
+
+grep -o "s" <<<"$x" | wc -l
+~                          
+
+7. How will you debug the shell script?
+
+>> Using set -x command
+
+8. What is crontab in linux? can you provide an example usage?
+
+>> crontab (short for cron table) is a command in Linux used to schedule and automate repetitive tasks at specific times or intervals using the cron daemon
+
+To see scheduled crontabs use crontab -l
+
+9. How to open file in read-only mode?
+
+>> vim -r filename
+
+10. What is the difference between soft and hard link?
+
+>> Hard Link → Points to Same file's inode, file stays even if original is deleted.
+Soft Link → Pointer to the file, breaks if the original is deleted.
+Hard links don’t work across file systems; soft links do. 
+
+
+11. What is the difference between break and continue statements?
+
+>> break stops the entire loop when a condition is met, while continue skips the current iteration and moves to the next one.
+
+12. What are the some disadvantages of shell scripting?
+
+>> - Errors are frequent and costly and a single error can alter the command.
+   - The execution speed is slow.
+   -  poor error handling, security risks, performance issues, and portability concerns across different environments.
+   - Every time a shell command is executed, a new process is launched.
+
+13. What are the different types of loops and when to use them?
+
+>> 
+Loop Type	Usage
+
+for loop	Used when iterating over a fixed set of values (e.g., files, numbers, or arguments).
+while loop	Used when the number of iterations is unknown, and the loop should run until a condition is false.
+until loop	Similar to while, but runs until the condition becomes true.
+
+14. Is bash is dynamically or statically typed? Why?
+
+>> Bash is a dynamically typed language.
+
+Why?
+No Explicit Data Types → Variables in Bash do not have predefined types. They can store numbers, strings, or arrays without declaration.
+Type Changes at Runtime → A variable can hold a string at one point and a number later without any errors.
+Weak Typing → Operations on variables depend on context rather than strict type rules (e.g., + is for arithmetic, while = is for string assignment)
+
+15. Expain about a network trobleshooting utility?
+
+>> Traceroute
+
+Traceroute helps diagnose network delays by mapping the path packets take from source to destination. It shows each router (hop) and the time taken to reach it. If a hop shows * * *, it may indicate packet loss, firewall restrictions, or a slow connection.
+
+16. How will you sort list of names in a file?
+
+>> We can sort a list of names using sort names.txt. For reverse sorting, use sort -r. To ignore case, use sort -f, and to remove duplicates, use sort -u.
+
+17. How will you manage logs of a system that generate huge log files everyday?
+
+>> For managing large log files, we use logrotate to rotate, compress, and delete logs. We can also limit log size, store logs on a separate partition, or use centralized logging solutions like ELK or Splunk.
+
+
