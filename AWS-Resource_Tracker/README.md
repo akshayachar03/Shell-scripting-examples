@@ -1,4 +1,4 @@
-# AWS Resource Listing Script
+# AWS Resource Tracker
 
 ## 📌 Overview
 
