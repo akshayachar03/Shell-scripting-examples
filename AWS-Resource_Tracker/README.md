@@ -19,7 +19,7 @@ Ensure the following requirements are met before running the script:
 ### 1️⃣ Clone the Repository
 ```bash
  git clone https://github.com/akshayachar03/Shell-scripting-examples.git
- cd Shell-scripting-examples
+ cd AWS-Resource_Tracker
 ```
 
 ### 2️⃣ Make the Script Executable
