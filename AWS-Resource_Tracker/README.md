@@ -23,22 +23,22 @@ Ensure the following requirements are met before running the script:
 
 ### 1️⃣ Clone the Repository
 
- git clone https://github.com/akshayachar03/Shell-scripting-examples.git
- cd AWS-Resource_Tracker
+- git clone https://github.com/akshayachar03/Shell-scripting-examples.git
+- cd AWS-Resource_Tracker
 
 
 ### 2️⃣ Make the Script Executable
 
-chmod +x aws_resource_list.sh
+- chmod +x aws_resource_list.sh
 
 
 ### 3️⃣ Run the Script
 
-./aws_resource_list.sh <aws_region> <aws_service>
+- ./aws_resource_list.sh <aws_region> <aws_service>
 
 #### Example:
 
-./aws_resource_list.sh us-east-1 ec2
+- ./aws_resource_list.sh us-east-1 ec2
 
 This will list EC2 instance IDs and names in the `us-east-1` region.
 
