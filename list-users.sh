@@ -11,6 +11,14 @@ TOKEN=$token
 REPO_OWNER=$1
 REPO_NAME=$2
 
+# Helper function to check arguments
+function helper {
+    if [[ -z "$REPO_OWNER" || -z "$REPO_NAME" ]]; then
+        echo "Usage: $0 <repo_owner> <repo_name>"
+        exit 1
+    fi
+}
+
 # Function to make a GET request to the GitHub API
 function github_api_get {
     local endpoint="$1"
@@ -34,9 +42,10 @@ function list_users_with_read_access {
         echo "Users with read access to ${REPO_OWNER}/${REPO_NAME}:"
         echo "$collaborators"
     fi
-}
 
+}
 # Main script
+helper
 
 echo "Listing users with read access to ${REPO_OWNER}/${REPO_NAME}..."
 list_users_with_read_access
